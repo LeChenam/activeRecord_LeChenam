@@ -24,19 +24,13 @@ public class PrincipaleJDBC {
         // il faut une base nommee testPersonne !
         String dbName = "testpersonne";
 
-        try {
+        //try {
             // chargement du driver jdbc
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // creation de la connection
-            Properties connectionProps = new Properties();
-            connectionProps.put("user", userName);
-            connectionProps.put("password", password);
-            String urlDB = "jdbc:mysql://" + serverName + ":";
-            urlDB += portNumber + "/" + dbName;
-            System.out.println(urlDB);
-            Connection connect = DriverManager.getConnection(urlDB, connectionProps);
+            Connection connect = DBConnection.getConnection();
             //Connection connect = DriverManager.getConnection("jdbc:mysql://db4free.net/testpersonne","scruzlara", "root2014");
+            /*
             // creation de la table Personne
             String createString = "CREATE TABLE Personne ( "
                     + "ID INTEGER  AUTO_INCREMENT, " + "NOM varchar(40) NOT NULL, "
@@ -138,12 +132,11 @@ public class PrincipaleJDBC {
         } catch (SQLException e) {
             System.out.println("*** ERREUR SQL ***");
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            System.out.println("*** ERREUR lors du chargement du driver ***");
-            e.printStackTrace();
         } catch (Exception e) {
             System.out.println("*** ERREUR inconnue... ***");
             e.printStackTrace();
         }
+        */
+
     }
 }
